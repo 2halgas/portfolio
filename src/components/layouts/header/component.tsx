@@ -9,18 +9,6 @@ export const Header: FC = () => {
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
-    useEffect(() => {
-        (async () => {
-            // const userToken = TokenStorageHelper.getToken();
-            // if (userToken) {
-            //     dispatch<AuthAction>({
-            //         type: 'auth/set',
-            //         payload: true,
-            //     });
-            // }
-        })();
-    }, [router]);
-
     const handleBurgerLinkClick = () => {
         setShowBurgerMenu(!showBurgerMenu);
     };
@@ -62,6 +50,8 @@ export const Header: FC = () => {
     }, [lastScrollY]);
 
     return (
-        <div>header</div>
+        <div className='container'>
+            Header
+        </div>
     );
 };
