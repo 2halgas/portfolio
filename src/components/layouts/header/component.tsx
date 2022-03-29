@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { NavLink } from 'src/components/atoms';
 import styled from 'styled-components';
 import { Props } from './props';
+import { v4 as uuid } from "uuid";
 
 const links = [
     {
@@ -94,7 +95,8 @@ export const Header: FC = () => {
             window.removeEventListener('scroll', controlNavbar);
         };
     }, [lastScrollY]);
-
+    if (!mounted) return null
+    
     return (
         <Wrapper className='container' showHeader={showHeader}>
             <div className='d-flex align-items-center justify-content-between'>
@@ -103,8 +105,8 @@ export const Header: FC = () => {
                     <nav>
                         <ul className='d-flex m-0'>
                             {links.map(({title, path}) => (
-                                    <li className='list-unstyled mx-2'>
-                                        <NavLink href={path}>
+                                    <li className='list-unstyled mx-2' key={uuid()}>
+                                        <NavLink href={path} color={theme === 'light' ? colors.text.secondary : colors.text.primary }>
                                         {title}
                                         </NavLink>
                                     </li>
