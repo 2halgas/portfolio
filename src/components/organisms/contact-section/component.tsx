@@ -118,7 +118,7 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>
   });
 
 const onSubmit = (data: any) => {
-    fetch('/api/hello', {
+    fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
