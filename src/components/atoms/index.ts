@@ -5,4 +5,5 @@ export * from './H4';
 export * from './H5';
 export * from './H6';
 export * from './button';
-export * from './nav-link'
+export * from './nav-link';
+export * from './p'
