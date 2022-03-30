@@ -4,7 +4,7 @@ import { colors, ScreenSizes } from 'src/common/dictionaries';
 import { P, H3  } from 'src/components/atoms';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     };
 `
 
-export const AboutSetion: FC = () => {
+export const AboutSection: FC = () => {
 const {theme} = useTheme()
 return (
     <Wrapper className='my-3'>

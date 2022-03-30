@@ -44,7 +44,7 @@ const cardItems = [
     }
 ]
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,7 +117,7 @@ margin-top: -60px;
 };
 `
 
-export const SkillsSetion: FC = () => {
+export const SkillsSection: FC = () => {
 const {theme} = useTheme()
 return (
     <Wrapper className='my-5 p-5'>
