@@ -4,7 +4,6 @@ import { colors, ScreenSizes } from 'src/common/dictionaries';
 import { P, H3  } from 'src/components/atoms';
 import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
-import { H4 } from '../../atoms/H4/component';
 
 const portfolioList = [
     {
@@ -91,7 +90,9 @@ return (
                             <div className='h-100 d-flex justify-content-center align-items-center'>
                                 <img className='align-self-center' width="100px" src={src} alt={title} />
                             </div>
-                            <P>{title}</P>
+                            <P 
+                            color={theme === 'light' ? colors.text.secondary : colors.text.primary }
+                            >{title}</P>
                         </CardWrapper>
                ))
             }

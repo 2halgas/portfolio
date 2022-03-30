@@ -12,9 +12,9 @@ export const colors = {
         secondary: '#000'
     },
     states: {
-        success: '#2084FF',
-        warning: '#2084FF',
-        error: '#2084FF'
+        success: '#40C391',
+        warning: '#FFA866',
+        error: '#FA6767'
     },
     shades: {
         dark: {

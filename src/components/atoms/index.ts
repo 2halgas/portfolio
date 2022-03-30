@@ -6,4 +6,6 @@ export * from './H5';
 export * from './H6';
 export * from './button';
 export * from './nav-link';
-export * from './p'
+export * from './p';
+export * from './input';
+export * from './text-area';
