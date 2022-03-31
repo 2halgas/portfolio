@@ -128,7 +128,6 @@ const onSubmit = (data: any) => {
       }).then((res) => {
         console.log('Response received')
         if (res.status === 200) {
-          console.log(res);
           console.log('Response succeeded!')
         }
       });

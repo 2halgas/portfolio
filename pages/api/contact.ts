@@ -42,9 +42,9 @@ async function SendMail(
     html: `<div>${body.message}</div><p>Sent from:
     ${body.email}</p>`
   };
+  console.log(transporter)
 
   transporter.sendMail(mailData, function (err, info) {
-    console.log(MAIL, MY_MAIL)
     if(err)
       console.log(err)
     else
