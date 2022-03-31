@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Props } from './props';
-import { FontSize, FontWeight, LineHeight } from 'src/common/dictionaries';
+import { FontSize, LineHeight } from 'src/common/dictionaries';
 import { colors } from 'src/common/dictionaries/colors';
 import { TextAttributes } from 'src/common/types';
 import { StyledUtils } from 'src/common/utils';
@@ -21,9 +21,15 @@ ${({
   cursor: pointer;
   text-decoration: none;
   transition: ${color} 0.2s linear;
-  :hover {
+    :hover {
       color: ${hoverColor};
-}
+    };
+    :visited {
+    color: ${color || colors.text.primary};
+    };
+    :link {
+    color: ${color || colors.text.primary};
+    };
 `}
 `;
 

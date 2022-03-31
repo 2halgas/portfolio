@@ -20,7 +20,7 @@ const isSmallDevice = useMediaQuery(600);
             <div className='container d-flex flex-column justify-content-center '>
                 <div className='d-flex justify-content-center my-4'>
                     <Anchor 
-                    color={theme === 'dark' ? colors.text.primary : colors.text.secondary}
+                    color={theme === 'light' ? colors.text.secondary : colors.text.primary}
                     href="#">↑ Back to top</Anchor>
                 </div>
                 <div className='d-flex justify-content-center mt-2'>
