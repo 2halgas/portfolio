@@ -20,8 +20,7 @@ async function SendMail(
   res: NextApiResponse<Data>
 ) {
   const transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
+    service: 'Gmail',
     auth: {
       user: MAIL,
       pass: PASSWORD,
@@ -42,7 +41,6 @@ async function SendMail(
     html: `<div>${body.message}</div><p>Sent from:
     ${body.email}</p>`
   };
-  console.log(transporter)
 
   transporter.sendMail(mailData, function (err, info) {
     if(err)
