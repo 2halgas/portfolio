@@ -135,7 +135,7 @@ const onSubmit = (data: any) => {
   };
 
 return (
-    <Wrapper className='my-3 p-md-3'>
+    <Wrapper id='contact' className='my-3 p-md-3'>
         <H3  
             color={theme === 'light' ? colors.text.secondary : colors.text.primary } 
             className='mb-3 pt-4'

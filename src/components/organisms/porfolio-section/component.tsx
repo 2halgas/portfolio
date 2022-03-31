@@ -71,7 +71,7 @@ export const PortfolioSection: FC = () => {
 const {theme} = useTheme();
 
 return (
-    <Wrapper className='my-5 p-md-3'>
+    <Wrapper id='portfolio' className='my-5 p-md-3'>
         <H3  
             color={theme === 'light' ? colors.text.secondary : colors.text.primary } 
             className='mb-3 pt-4'

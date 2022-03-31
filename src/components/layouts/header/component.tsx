@@ -1,38 +1,37 @@
 import React, {
     FC, useState, useEffect, useRef,
 } from 'react';
-import { useRouter } from 'next/router';
-import { useTheme } from "next-themes";
+import { useTheme } from 'next-themes';
 import { Button } from 'src/components/atoms/button';
 import { colors } from 'src/common/dictionaries';
 import { NavLink } from 'src/components/atoms';
 import styled from 'styled-components';
-import { Props } from './props';
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 import { useMediaQuery } from 'src/common/hooks/use-media-query';
 import { useOnClickOutside } from 'src/common/hooks/use-on-click-outside';
+import { Props } from './props';
 
 const links = [
     {
         title: 'Home',
-        path: '/'
+        path: '#',
     },
     {
         title: 'About',
-        path: '/'
+        path: '#about',
     },
     {
         title: 'Skills',
-        path: '/'
+        path: '#skills',
     },
     {
-        title: 'Works',
-        path: '/'
+        title: 'Portfolio',
+        path: '#portfolio',
     },
     {
-        title: 'Contacts',
-        path: '/'
-    }
+        title: 'Contact',
+        path: '#contact',
+    },
 ];
 
 const Wrapper = styled.header`${({ showHeader, backgroundColor }: Props) => `
@@ -75,27 +74,26 @@ const StyledBurger = styled.button`
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }: Props) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }: Props) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }: Props) => open ? '0' : '1'};
-      transform: ${({ open }: Props) => open ? 'translateX(20px)' : 'translateX(0)'};
+      opacity: ${({ open }: Props) => (open ? '0' : '1')};
+      transform: ${({ open }: Props) => (open ? 'translateX(20px)' : 'translateX(0)')};
     }
 
     :nth-child(3) {
-      transform: ${({ open }: Props) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }: Props) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
-`
-
+`;
 
 const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: ${colors.shades.light.light400};
-  transform: ${({ open }: Props) => open ? 'translateX(0)' : 'translateX(-100%)'};
+  transform: ${({ open }: Props) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   height: 100vh;
   text-align: left;
   padding: 2rem;
@@ -127,49 +125,47 @@ const StyledMenu = styled.nav`
       color: #343078;
     }
   }
-`
+`;
 
-const Menu = ({ open }: Props) => {
+function Menu({ open, handleBurgerLinkClick }: Props) {
     return (
-      <StyledMenu open={open}>
-        <ul className='d-flex flex-column m-0'>
-            {links.map(({title, path}) => (
-                <li className='list-unstyled mx-2' key={uuid()}>
-                    <NavLink href={path}>
-                    {title}
-                    </NavLink>
-                </li>
-            ))}
-        </ul>
-      </StyledMenu>
-    )
-  }
+        <StyledMenu open={open}>
+            <ul className="d-flex flex-column m-0">
+                {links.map(({ title, path }) => (
+                    <li className="list-unstyled mx-2" key={uuid()}>
+                        <NavLink href={path} onClick={handleBurgerLinkClick}>
+                            {title}
+                        </NavLink>
+                    </li>
+                ))}
+            </ul>
+        </StyledMenu>
+    );
+}
 
 export const Header: FC = () => {
-    const router = useRouter();
     const [showBurgerMenu, setShowBurgerMenu] = useState(false);
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
-    const node = useRef<HTMLDivElement>(null); 
+    const node = useRef<HTMLDivElement>(null);
     useOnClickOutside(node, () => setShowBurgerMenu(false));
-  
+
     const isSmallDevice = useMediaQuery(635);
 
-
-    const Burger = ({ open, handleBurgerLinkClick }: Props) => {
+    function Burger({ open, handleBurgerLinkClick }: Props) {
         return (
-          <StyledBurger theme={theme} open={open} onClick={handleBurgerLinkClick}>
-            <div />
-            <div />
-            <div />
-          </StyledBurger>
-        )
-      }
+            <StyledBurger theme={theme} open={open} onClick={handleBurgerLinkClick}>
+                <div />
+                <div />
+                <div />
+            </StyledBurger>
+        );
+    }
 
     useEffect(() => {
-      setMounted(true);
+        setMounted(true);
     }, []);
 
     const handleBurgerLinkClick = () => {
@@ -178,16 +174,6 @@ export const Header: FC = () => {
 
     const closeBurgerMenu = () => {
         setShowBurgerMenu(false);
-    };
-
-    const handleCabinetButtonClick = () => {
-        router.push('/cabinet?tab=details');
-        handleBurgerLinkClick();
-    };
-
-    const handleLoginClick = () => {
-        router.push('/sign-in');
-        handleBurgerLinkClick();
     };
 
     const controlNavbar = () => {
@@ -211,54 +197,56 @@ export const Header: FC = () => {
             window.removeEventListener('scroll', controlNavbar);
         };
     }, [lastScrollY]);
-    if (!mounted) return null
+    if (!mounted) return null;
     return (
-        <Wrapper showHeader={showHeader} backgroundColor={theme === 'light' ? colors.shades.light.light100 : colors.shades.dark.dark600 }>
-            <div className='d-flex align-items-center justify-content-between container'>
-                <NavLink href="/"><img src="/images/logo.png" alt="Logo" width="85px" height="75px"/></NavLink>
-                {isSmallDevice ?  (
-                        <div ref={node}>
+        <Wrapper showHeader={showHeader} backgroundColor={theme === 'light' ? colors.shades.light.light100 : colors.shades.dark.dark600}>
+            <div className="d-flex align-items-center justify-content-between container">
+                <NavLink href="/"><img src="/images/logo.png" alt="Logo" width="85px" height="75px" /></NavLink>
+                {isSmallDevice ? (
+                    <div ref={node}>
+                        <Button
+                            aria-label="Toggle Dark Mode"
+                            type="button"
+                            size="xs"
+                            button="link"
+                            className="me-5"
+                            backgroundColor={theme === 'dark' ? colors.shades.dark.primary : colors.shades.light.primary}
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        >
+                            {theme === 'dark' ? <img src="/images/svg/theme.svg" alt="sun" />
+                                : <img src="/images/svg/moon.svg" alt="moon" />}
+                        </Button>
+                        <Burger open={showBurgerMenu} handleBurgerLinkClick={handleBurgerLinkClick} />
+                        <Menu handleBurgerLinkClick={handleBurgerLinkClick} open={showBurgerMenu} />
+                    </div>
+                )
+                    : (
+                        <div className="d-flex align-items-center">
+                            <nav>
+                                <ul className="d-flex m-0">
+                                    {links.map(({ title, path }) => (
+                                        <li className="list-unstyled mx-2" key={uuid()}>
+                                            <NavLink href={path} color={theme === 'light' ? colors.text.secondary : colors.text.primary}>
+                                                {title}
+                                            </NavLink>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
                             <Button
                                 aria-label="Toggle Dark Mode"
                                 type="button"
-                                size='xs'
-                                button='link'
-                                className='me-5'
-                                backgroundColor={theme === "dark" ? colors.shades.dark.primary : colors.shades.light.primary}
-                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                                size="xs"
+                                button="link"
+                                className="ms-2"
+                                backgroundColor={theme === 'dark' ? colors.shades.dark.primary : colors.shades.light.primary}
+                                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                             >
-                                {theme === "dark" ? <img src='/images/svg/theme.svg' alt='sun' /> :
-                                <img src='/images/svg/moon.svg' alt='moon' />}
+                                {theme === 'dark' ? <img src="/images/svg/theme.svg" alt="sun" />
+                                    : <img src="/images/svg/moon.svg" alt="moon" />}
                             </Button>
-                            <Burger open={showBurgerMenu} handleBurgerLinkClick={handleBurgerLinkClick} />
-                            <Menu open={showBurgerMenu} />
                         </div>
-                        ) : 
-                (<div className='d-flex align-items-center'>
-                    <nav>
-                        <ul className='d-flex m-0'>
-                            {links.map(({title, path}) => (
-                                    <li className='list-unstyled mx-2' key={uuid()}>
-                                        <NavLink href={path} color={theme === 'light' ? colors.text.secondary : colors.text.primary }>
-                                        {title}
-                                        </NavLink>
-                                    </li>
-                                ))}
-                        </ul>
-                    </nav>
-                    <Button
-                    aria-label="Toggle Dark Mode"
-                    type="button"
-                    size='xs'
-                    button='link'
-                    className='ms-2'
-                    backgroundColor={theme === "dark" ? colors.shades.dark.primary : colors.shades.light.primary}
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    >
-                        {theme === "dark" ? <img src='/images/svg/theme.svg' alt='sun' /> :
-                        <img src='/images/svg/moon.svg' alt='moon' />}
-                    </Button>
-                </div>)}
+                    )}
             </div>
         </Wrapper>
     );

@@ -120,7 +120,7 @@ margin-top: -60px;
 export const SkillsSection: FC = () => {
 const {theme} = useTheme()
 return (
-    <Wrapper className='my-5 p-5'>
+    <Wrapper id='skills' className='my-5 p-5'>
         <H3  
             color={theme === 'light' ? colors.text.secondary : colors.text.primary } 
             className='mb-3'
