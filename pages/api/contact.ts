@@ -44,12 +44,12 @@ async function SendMail(
   };
 
   transporter.sendMail(mailData, function (err, info) {
+    console.log(MAIL, MY_MAIL)
     if(err)
       console.log(err)
     else
       console.log(info)
   });
-console.log(MAIL, MY_MAIL)
   res.status(200).json(body)
 }
 
