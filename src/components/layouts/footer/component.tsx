@@ -5,16 +5,18 @@ import styled from 'styled-components';
 import { useTheme } from 'next-themes';
 import { Github, Telegram } from 'src/components/atoms/icons';
 import { Props } from './props';
+import Wave from 'react-wavify'
+import { useMediaQuery } from 'src/common/hooks/use-media-query';
 
 const Wrapper = styled.footer`${({ backgroundColor }: Props) => `
-    background: ${backgroundColor};
-    height: 200px;
+background: ${backgroundColor}
     `}`;
 
 export const Footer:FC = () => {
-    const { theme } = useTheme()
-    return (
-    <Wrapper className='mt-5' backgroundColor={theme === 'light' ? colors.shades.light.light300 : colors.shades.dark.dark400 }>
+    const { theme } = useTheme();
+const isSmallDevice = useMediaQuery(600);
+    return (<Wrapper className='mt-5' backgroundColor={theme === 'light' ? colors.shades.light.light300 : colors.shades.dark.dark400 }>
+        
             <div className='container d-flex flex-column justify-content-center '>
                 <div className='d-flex justify-content-center my-4'>
                     <Anchor 
@@ -49,5 +51,20 @@ export const Footer:FC = () => {
                 </P>
                 </div>
             </div>
+    <Wave fill={theme === 'light' ? colors.shades.dark.dark400 : colors.shades.light.light400 }
+        paused={false}
+        options={isSmallDevice ? {
+            height: 50,
+            amplitude: 60,
+            speed: 0.1,
+            points: 2
+          } :{
+          height: 30,
+          amplitude: 100,
+          speed: 0.15,
+          points: 5
+        }}
+  />
     </Wrapper>
+        
 )};
