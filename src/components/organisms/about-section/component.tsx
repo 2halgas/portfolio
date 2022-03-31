@@ -26,7 +26,7 @@ const Wrapper = styled.section`
 export const AboutSection: FC = () => {
 const {theme} = useTheme()
 return (
-    <Wrapper className='my-3'>
+    <Wrapper className='my-5'>
         <H3 className='mb-3' color={theme === 'light' ? colors.text.secondary : colors.text.primary }>About me</H3>
         <P color={theme === 'light' ? colors.text.secondary : colors.text.primary }>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, veniam, impedit vero cumque iusto doloremque neque non consequatur mollitia beatae nihil error deleniti sed inventore.</P>
     </Wrapper>

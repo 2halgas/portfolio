@@ -9,3 +9,4 @@ export * from './nav-link';
 export * from './p';
 export * from './input';
 export * from './text-area';
+export * from './anchor';

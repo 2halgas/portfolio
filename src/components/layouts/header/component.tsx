@@ -35,7 +35,7 @@ const links = [
     }
 ];
 
-const Wrapper = styled.div`${({ showHeader, backgroundColor }: Props) => `
+const Wrapper = styled.header`${({ showHeader, backgroundColor }: Props) => `
     position: sticky;
     top: ${showHeader ? '-1px' : '-100px'};
     transition: 0.3s linear;

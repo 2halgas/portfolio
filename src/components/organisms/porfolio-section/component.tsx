@@ -68,11 +68,10 @@ const CardWrapper = styled.a`
 
 
 export const PortfolioSection: FC = () => {
-const {theme} = useTheme()
-
+const {theme} = useTheme();
 
 return (
-    <Wrapper className='my-3 p-md-3'>
+    <Wrapper className='my-5 p-md-3'>
         <H3  
             color={theme === 'light' ? colors.text.secondary : colors.text.primary } 
             className='mb-3 pt-4'
@@ -83,7 +82,7 @@ return (
         >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, veniam, impedit vero cumque iusto doloremque neque non consequatur mollitia beatae nihil error deleniti sed inventore.
         </P>
-        <div className='d-flex flex-wrap justify-content-center col-md-10 my-3'>
+        <div className='d-flex flex-wrap justify-content-center col-12 col-md-10 my-3'>
             {
                portfolioList.map(({title, src, href}) => (
                         <CardWrapper className='m-md-3' key={uuid()} href={href} target="_blank">
