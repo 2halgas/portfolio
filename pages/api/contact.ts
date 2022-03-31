@@ -28,7 +28,6 @@ async function SendMail(
     },
     secure: true,
   });
-
   const body = req.body;
 
   if (!body.name || !body.email || !body.message) {
@@ -50,7 +49,7 @@ async function SendMail(
     else
       console.log(info)
   });
-
+console.log(MAIL, MY_MAIL)
   res.status(200).json(body)
 }
 
