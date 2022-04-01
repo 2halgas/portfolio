@@ -16,10 +16,11 @@ export const Footer:FC = () => {
     const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const isSmallDevice = useMediaQuery(600);
-    
+
     useEffect(() => {
         setMounted(true);
     }, []);
+    if (!mounted) return null;
     return (<Wrapper className='mt-5' backgroundColor={theme === 'light' ? colors.shades.light.light300 : colors.shades.dark.dark400 }>
         
             <div className='container d-flex flex-column justify-content-center '>
