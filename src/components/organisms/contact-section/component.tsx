@@ -8,7 +8,7 @@ import { StyledUtils } from 'src/common/utils';
 import { TextAttributes } from 'src/common/types';
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { toast } from 'react-toastify';
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -118,7 +118,8 @@ const [mounted, setMounted] = useState(false)
 const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
-
+  const notify = () => toast("Your message successfully sent!", { autoClose: 1500, icon: "🚀" });
+  
 const onSubmit = (data: any) => {
     fetch('/api/contact', {
         method: 'POST',
@@ -130,12 +131,11 @@ const onSubmit = (data: any) => {
       }).then((res) => {
         console.log('Response received')
         if (res.status === 200) {
-          console.log('Response succeeded!')
+          notify();
         }
       });
       reset();
   };
-
   useEffect(() => setMounted(true), [])
 
   if (!mounted) return null
@@ -149,7 +149,7 @@ return (
         color={theme === 'light' ? colors.text.secondary : colors.text.primary }
         className='text-center col-11 col-md-10'
         >
-Let's be in touch! 
+          Let's be in touch! 
         </P>
         <form onSubmit={handleSubmit(onSubmit)} className='my-3 d-flex flex-column justify-content-center'>
         <div className='d-flex flex-column justify-content-center'>
