@@ -210,11 +210,10 @@ export const Header: FC = () => {
                             size="xs"
                             button="link"
                             className="me-5"
-                            backgroundColor={theme === 'dark' ? colors.shades.dark.primary : colors.shades.light.primary}
-                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            backgroundColor={theme === 'light' ? colors.shades.light.primary : colors.shades.dark.primary}
+                            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                         >
-                            {theme === 'dark' ? <img src="/images/svg/theme.svg" alt="sun" />
-                                : <img src="/images/svg/moon.svg" alt="moon" />}
+                            {theme === 'light' ? <img src="/images/svg/moon.svg" alt="moon" /> :<img src="/images/svg/theme.svg" alt="sun" />}
                         </Button>
                         <Burger open={showBurgerMenu} handleBurgerLinkClick={handleBurgerLinkClick} />
                         <Menu handleBurgerLinkClick={handleBurgerLinkClick} open={showBurgerMenu} />
@@ -239,11 +238,11 @@ export const Header: FC = () => {
                                 size="xs"
                                 button="link"
                                 className="ms-2"
-                                backgroundColor={theme === 'dark' ? colors.shades.dark.primary : colors.shades.light.primary}
-                                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                                backgroundColor={theme === 'light' ? colors.shades.light.primary : colors.shades.dark.primary}
+                                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                             >
-                                {theme === 'dark' ? <img src="/images/svg/theme.svg" alt="sun" />
-                                    : <img src="/images/svg/moon.svg" alt="moon" />}
+                                {theme === 'light' ? <img src="/images/svg/moon.svg" alt="moon" />
+                                    : <img src="/images/svg/theme.svg" alt="sun" /> }
                             </Button>
                         </div>
                     )}

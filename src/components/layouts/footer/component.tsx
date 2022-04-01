@@ -31,21 +31,21 @@ const isSmallDevice = useMediaQuery(600);
                 <P
                 fontSize={FontSize.Medium}
                 className="col-12 col-sm-3 text-center"
-                    color={theme === 'dark' ? colors.text.primary : colors.text.secondary}
+                    color={theme === 'light' ? colors.text.secondary : colors.text.primary}
                 >
                     Web Developer
                 </P>
                 <P
                 fontSize={FontSize.Medium}
                 className="col-12 col-sm-3 text-center"
-                    color={theme === 'dark' ? colors.text.primary : colors.text.secondary}
+                color={theme === 'light' ? colors.text.secondary : colors.text.primary}
                 >
                     Designed by Zhalgas
                 </P>
                 <P
                 fontSize={FontSize.Medium}
                     className="col-12 col-sm-3 text-center"
-                    color={theme === 'dark' ? colors.text.primary : colors.text.secondary}
+                    color={theme === 'light' ? colors.text.secondary : colors.text.primary}
                 >
                     {`${new Date().getFullYear()}`}
                 </P>
