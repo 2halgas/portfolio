@@ -33,7 +33,7 @@ const isSmallDevice = useMediaQuery(600);
                 className="col-12 col-sm-3 text-center"
                     color={theme === 'dark' ? colors.text.primary : colors.text.secondary}
                 >
-                    Fullstack Developer
+                    Web Developer
                 </P>
                 <P
                 fontSize={FontSize.Medium}
@@ -47,7 +47,7 @@ const isSmallDevice = useMediaQuery(600);
                     className="col-12 col-sm-3 text-center"
                     color={theme === 'dark' ? colors.text.primary : colors.text.secondary}
                 >
-                    {`Khamidulla Zhalgas ${new Date().getFullYear()}`}
+                    {`${new Date().getFullYear()}`}
                 </P>
                 </div>
             </div>

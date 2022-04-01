@@ -48,6 +48,7 @@ const Wrapper = styled.section`
     box-sizing: border-box;
     backdrop-filter: blur(24px);
     border-radius: 5px;
+    text-align: justify;
 `;
 
 const CardWrapper = styled.a`
@@ -78,9 +79,9 @@ return (
         >Portfolio</H3>
         <P 
         color={theme === 'light' ? colors.text.secondary : colors.text.primary }
-        className='col-11 col-md-10'
+        className='text-center col-11 col-md-10'
         >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, veniam, impedit vero cumque iusto doloremque neque non consequatur mollitia beatae nihil error deleniti sed inventore.
+        While my work experience made this projects
         </P>
         <div className='d-flex flex-wrap justify-content-center col-12 col-md-10 my-3'>
             {
