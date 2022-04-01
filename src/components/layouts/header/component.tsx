@@ -93,7 +93,7 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: ${colors.shades.light.light400};
+  background: ${colors.shades.dark.dark400};
   transform: ${({ open }: Props) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   height: 100vh;
   text-align: left;
@@ -128,7 +128,7 @@ const StyledMenu = styled.nav`
   }
 `;
 
-function Menu({ open, handleBurgerLinkClick }: Props) {
+const Menu = ({ open, handleBurgerLinkClick }: Props) => {
     return (
         <StyledMenu open={open}>
             <ul className="d-flex flex-column m-0">

@@ -40,7 +40,7 @@ return (
             fontSize={FontSize.Large}
             color={theme === 'light' ? colors.text.secondary : colors.text.primary }
             >
-                I am motivated web developer from Kazakhstan, Almaty. 2 years experience in this sphere. Educated in AUPET, and Master of Technique and Technology.     
+                I am motivated web developer from Kazakhstan, Almaty.     
             </P>
         </div>
     </Wrapper>

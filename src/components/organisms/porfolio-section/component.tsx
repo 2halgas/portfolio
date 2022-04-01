@@ -85,7 +85,7 @@ return (
         color={theme === 'light' ? colors.text.secondary : colors.text.primary }
         className='text-center col-11 col-md-10'
         >
-        While my work experience made this projects
+        My work experience is consist from these projects
         </P>
         <div className='d-flex flex-wrap justify-content-center col-12 col-md-10 my-3'>
             {
