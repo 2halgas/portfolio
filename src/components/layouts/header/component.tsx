@@ -10,6 +10,7 @@ import { v4 as uuid } from 'uuid';
 import { useMediaQuery } from 'src/common/hooks/use-media-query';
 import { useOnClickOutside } from 'src/common/hooks/use-on-click-outside';
 import { Props } from './props';
+import { Anchor } from '../../atoms/anchor/component';
 
 const links = [
     {
@@ -132,10 +133,10 @@ function Menu({ open, handleBurgerLinkClick }: Props) {
         <StyledMenu open={open}>
             <ul className="d-flex flex-column m-0">
                 {links.map(({ title, path }) => (
-                    <li className="list-unstyled mx-2" key={uuid()}>
-                        <NavLink href={path} onClick={handleBurgerLinkClick}>
+                    <li className="list-unstyled m-3" key={uuid()}>
+                        <Anchor href={path} onClick={handleBurgerLinkClick}>
                             {title}
-                        </NavLink>
+                        </Anchor>
                     </li>
                 ))}
             </ul>
@@ -154,7 +155,7 @@ export const Header: FC = () => {
 
     const isSmallDevice = useMediaQuery(635);
 
-    function Burger({ open, handleBurgerLinkClick }: Props) {
+    const Burger = ({ open, handleBurgerLinkClick }: Props) => {
         return (
             <StyledBurger theme={theme} open={open} onClick={handleBurgerLinkClick}>
                 <div />
