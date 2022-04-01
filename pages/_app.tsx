@@ -9,7 +9,7 @@ import { ThemeProvider } from "next-themes";
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
   <Provider store={store}>
-      <ThemeProvider defaultTheme="system" enableSystem={false}>
+      <ThemeProvider>
         <AppHead />
         <AppContainer>
                 <Component {...pageProps} />

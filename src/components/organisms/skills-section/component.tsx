@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes';
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { colors, ScreenSizes } from 'src/common/dictionaries';
-import { P, H3  } from 'src/components/atoms';
+import { H3  } from 'src/components/atoms';
 import styled from 'styled-components';
 
 import { v4 as uuid } from "uuid";
@@ -109,7 +109,12 @@ font-size: 16px;
 `
 
 export const SkillsSection: FC = () => {
-const {theme} = useTheme()
+const {theme} = useTheme();
+const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 return (
     <Wrapper id='skills' className='my-5 p-5'>
         <H3  

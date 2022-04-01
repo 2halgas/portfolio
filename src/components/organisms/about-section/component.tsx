@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { colors, FontSize, ScreenSizes } from 'src/common/dictionaries';
 import { P, H3, H1  } from 'src/components/atoms';
 import styled from 'styled-components';
@@ -18,7 +18,12 @@ const Wrapper = styled.section`
 `;
 
 export const AboutSection: FC = () => {
-const {theme} = useTheme()
+const {theme} = useTheme();
+const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 return (
     <Wrapper id='about' className='my-5'>
         <div className='mb-4 d-flex flex-column justify-content-between align-items-end'>

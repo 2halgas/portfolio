@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { colors, FontSize, LineHeight } from 'src/common/dictionaries';
 import { P, H3, Button  } from 'src/components/atoms';
 import styled from 'styled-components';
@@ -113,7 +113,8 @@ type Inputs = {
 };
 
 export const ContactSection: FC = () => {
-const { theme } = useTheme()
+const { theme } = useTheme();
+const [mounted, setMounted] = useState(false)
 const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
@@ -135,6 +136,9 @@ const onSubmit = (data: any) => {
       reset();
   };
 
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 return (
     <Wrapper id='contact' className='my-3 p-md-3'>
         <H3  
