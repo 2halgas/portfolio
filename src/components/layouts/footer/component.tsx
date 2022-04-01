@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { colors, FontSize } from 'src/common/dictionaries';
 import { Anchor, P } from 'src/components/atoms';
 import styled from 'styled-components';
@@ -14,7 +14,12 @@ background: ${backgroundColor}
 
 export const Footer:FC = () => {
     const { theme } = useTheme();
-const isSmallDevice = useMediaQuery(600);
+    const [mounted, setMounted] = useState(false);
+    const isSmallDevice = useMediaQuery(600);
+    
+    useEffect(() => {
+        setMounted(true);
+    }, []);
     return (<Wrapper className='mt-5' backgroundColor={theme === 'light' ? colors.shades.light.light300 : colors.shades.dark.dark400 }>
         
             <div className='container d-flex flex-column justify-content-center '>
