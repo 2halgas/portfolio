@@ -46,7 +46,7 @@ const Wrapper = styled.header`${({ showHeader, backgroundColor }: Props) => `
 
 const StyledBurger = styled.button`
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 1rem;
   display: flex;
   flex-direction: column;
