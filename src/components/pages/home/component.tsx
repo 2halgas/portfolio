@@ -14,6 +14,6 @@ const [mounted, setMounted] = useState(false);
         <AboutSection />
         <SkillsSection />
         <PortfolioSection />
-        {/*<ContactSection />*/}
+        <ContactSection />
     </div>
 )};

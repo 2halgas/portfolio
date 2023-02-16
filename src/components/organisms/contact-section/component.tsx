@@ -129,8 +129,6 @@ const onSubmit = (data: any) => {
         },
         body: JSON.stringify(data)
       }).then((res) => {
-        console.log(res)
-
         if (res.status === 200) {
           notify();
         }
