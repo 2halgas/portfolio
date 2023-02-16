@@ -2,15 +2,13 @@ import React, {
     FC, useState, useEffect, useRef,
 } from 'react';
 import { useTheme } from 'next-themes';
-import { Button } from 'src/components/atoms/button';
 import { colors } from 'src/common/dictionaries';
-import { NavLink } from 'src/components/atoms';
+import { NavLink, Anchor, Button } from 'src/components/atoms';
 import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { useMediaQuery } from 'src/common/hooks/use-media-query';
 import { useOnClickOutside } from 'src/common/hooks/use-on-click-outside';
 import { Props } from './props';
-import { Anchor } from '../../atoms/anchor/component';
 
 const links = [
     {
@@ -202,7 +200,7 @@ export const Header: FC = () => {
     return (
         <Wrapper showHeader={showHeader} backgroundColor={theme === 'light' ? colors.shades.light.light100 : colors.shades.dark.dark600}>
             <div className="d-flex align-items-center justify-content-between container">
-                <NavLink href="/"><img src="/images/logo.png" alt="Logo" width="85px" height="75px" /></NavLink>
+                <NavLink href="/" color={theme === 'light' ? colors.text.secondary : colors.text.primary}>2halgas</NavLink>
                 {isSmallDevice ? (
                     <div ref={node}>
                         <Button

@@ -5,7 +5,6 @@ export const AppHead: FC = () => (
     <Head>
         <title>Zhalgas`s CV</title>
         <meta name="description" content="My CV" />
-        <link rel="icon" href="/images/logo.png" />
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <meta name="keywords" content="" />
         <meta property="og:title" content="Zhalgas`s CV" />
