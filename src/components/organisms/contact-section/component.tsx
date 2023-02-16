@@ -87,7 +87,7 @@ const ErrorP = styled(P)`
     color: ${colors.states.error};
     font-size: ${FontSize.Small};
     line-height: ${LineHeight.Small};
-    font-family: "PoppinsRegular";
+    font-family: "PoppinsRegular",serif;
     margin-top: 5px;
 `;
 
@@ -119,7 +119,7 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>
     resolver: yupResolver(schema),
   });
   const notify = () => toast("Your message successfully sent!", { autoClose: 1500, icon: "🚀" });
-  
+
 const onSubmit = (data: any) => {
     fetch('/api/contact', {
         method: 'POST',
@@ -129,7 +129,8 @@ const onSubmit = (data: any) => {
         },
         body: JSON.stringify(data)
       }).then((res) => {
-        console.log('Response received')
+        console.log(res)
+
         if (res.status === 200) {
           notify();
         }
@@ -141,15 +142,15 @@ const onSubmit = (data: any) => {
   if (!mounted) return null
 return (
     <Wrapper id='contact' className='my-3 p-md-3'>
-        <H3  
-            color={theme === 'light' ? colors.text.secondary : colors.text.primary } 
+        <H3
+            color={theme === 'light' ? colors.text.secondary : colors.text.primary }
             className='mb-3 pt-4'
         >Contact</H3>
-        <P 
+        <P
         color={theme === 'light' ? colors.text.secondary : colors.text.primary }
         className='text-center col-11 col-md-10'
         >
-          Let's be in touch! 
+          Let's be in touch!
         </P>
         <form onSubmit={handleSubmit(onSubmit)} className='my-3 d-flex flex-column justify-content-center'>
         <div className='d-flex flex-column justify-content-center'>
@@ -189,9 +190,9 @@ return (
             <P
             color={theme === 'light' ? colors.text.secondary : colors.text.primary }
             >Message</P>
-            <StyledTextArea 
+            <StyledTextArea
                 {...register('message', { required: true })}
-                className={`form-control ${errors.subject ? 'is-invalid' : ''}`} 
+                className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
             />
             <ErrorP>{errors.message?.message}</ErrorP>
         </div>

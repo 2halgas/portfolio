@@ -22,16 +22,16 @@ export const Footer:FC = () => {
     }, []);
     if (!mounted) return null;
     return (<Wrapper className='mt-5' backgroundColor={theme === 'light' ? colors.shades.light.light300 : colors.shades.dark.dark400 }>
-        
+
             <div className='container d-flex flex-column justify-content-center '>
                 <div className='d-flex justify-content-center my-4'>
-                    <Anchor 
+                    <Anchor
                     color={theme === 'light' ? colors.text.secondary : colors.text.primary}
                     href="#">↑ Back to top</Anchor>
                 </div>
                 <div className='d-flex justify-content-center mt-2'>
                 <Anchor target='_blank' href='https://github.com/2halgas'><Github className='mx-2' /></Anchor>
-                <Anchor target='_blank' href='https://t.me/ZhalgasKhamidulla'><Telegram className='mx-2' /></Anchor>
+                <Anchor target='_blank' href='https://t.me/ZhalgasDev'><Telegram className='mx-2' /></Anchor>
                 </div>
                 <div className='mt-3 d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between col-12'>
                 <P
@@ -72,5 +72,5 @@ export const Footer:FC = () => {
         }}
   />
     </Wrapper>
-        
+
 )};
