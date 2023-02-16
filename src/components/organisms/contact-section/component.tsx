@@ -113,9 +113,10 @@ type Inputs = {
 };
 
 export const ContactSection: FC = () => {
-const { theme } = useTheme();
-const [mounted, setMounted] = useState(false)
-const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({
+    const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false)
+    const [contact, setContact] = useState<string | null>('0')
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
   const notify = () => toast("Your message successfully sent!", { autoClose: 1500, icon: "🚀" });
@@ -131,11 +132,17 @@ const onSubmit = (data: any) => {
       }).then((res) => {
         if (res.status === 200) {
           notify();
+          localStorage.setItem('contact', '1')
+            setContact('1');
         }
       });
       reset();
   };
-  useEffect(() => setMounted(true), [])
+
+  useEffect(() => {
+      setMounted(true);
+      setContact(localStorage.getItem('contact'))
+  }, [])
 
   if (!mounted) return null
 return (
@@ -195,7 +202,7 @@ return (
             <ErrorP>{errors.message?.message}</ErrorP>
         </div>
         <div className='my-2 d-flex justify-content-center'>
-          <Button size='sm' backgroundColor={colors.shades.dark.dark300} type="submit" >Send Message</Button>
+          <Button size='sm' backgroundColor={colors.shades.dark.dark300} type="submit" disabled={contact && +contact === 1 || false} >Send Message</Button>
         </div>
       </form>
     </Wrapper>

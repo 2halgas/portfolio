@@ -43,7 +43,7 @@ ${({
 
     :hover {
       color: ${hoverColor || colors.text.primary};
-      background-color: ${hoverBackgroundColor || colors.branding.primary600};
+      background-color: ${hoverBackgroundColor || colors.shades.dark};
     }
   ` : ''}
 
@@ -72,6 +72,7 @@ ${({
   
   ${disabled ? `
     opacity: 0.48;
+    cursor: not-allowed
   ` : ''}
 `}
 `;
