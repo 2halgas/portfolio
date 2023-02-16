@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { colors, ScreenSizes } from 'src/common/dictionaries';
 import { H3  } from 'src/components/atoms';
 import styled from 'styled-components';
-
+import Marquee from "react-fast-marquee";
 import { v4 as uuid } from "uuid";
 
 const cardItems = [
@@ -46,6 +46,21 @@ const cardItems = [
         src: "images/logos/getbootstrap-icon.svg",
         color: "white",
         name: "Bootstrap"
+    },
+    {
+        src: "images/logos/flutterio-icon.svg",
+        color: "white",
+        name: "Flutter"
+    },
+    {
+        src: "images/logos/figma-icon.svg",
+        color: "white",
+        name: "Figma"
+    },
+    {
+        src: "images/logos/tailwindcss-icon.svg",
+        color: "white",
+        name: "Tailwindcss"
     },
 ]
 
@@ -117,10 +132,11 @@ const [mounted, setMounted] = useState(false)
   if (!mounted) return null
 return (
     <Wrapper id='skills' className='my-5 p-5'>
-        <H3  
-            color={theme === 'light' ? colors.text.secondary : colors.text.primary } 
+        <H3
+            color={theme === 'light' ? colors.text.secondary : colors.text.primary }
             className='mb-3'
         >Skills</H3>
+        <Marquee gradient={false} speed={30} className='overflow-hidden'>
         <CardWrapper className='d-flex flex-wrap flex-xl-nowrap justify-content-evenly align-items-center'>
                 {cardItems.map(({src, color, name}) => {
                     return (
@@ -130,5 +146,6 @@ return (
                     </Card>
                     )})}
             </CardWrapper>
+        </Marquee>
     </Wrapper>
   )}
